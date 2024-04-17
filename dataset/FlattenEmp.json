@@ -1,0 +1,37 @@
+{
+	"name": "FlattenEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedService_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emplyees.json",
+				"folderPath": "input",
+				"container": "adfdemo"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"emp id": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "string"
+				},
+				"Country": {
+					"type": "string"
+				},
+				"Department": {
+					"type": "integer"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

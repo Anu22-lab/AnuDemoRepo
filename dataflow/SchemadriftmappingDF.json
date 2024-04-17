@@ -1,0 +1,53 @@
+{
+	"name": "SchemadriftmappingDF",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Schemadriftdata",
+						"type": "DatasetReference"
+					},
+					"name": "employees"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Schemadriftdata",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {emp id} as integer,",
+				"          Name as string,",
+				"          Salary as integer,",
+				"          Country as string,",
+				"          Department as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false) ~> employees",
+				"employees sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          {emp id} as string,",
+				"          Name as string,",
+				"          Salary as string,",
+				"          Country as string,",
+				"          Department as string",
+				"     ),",
+				"     partitionFileNames:['schemadriftdata.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
+			]
+		}
+	}
+}

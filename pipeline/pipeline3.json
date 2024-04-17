@@ -1,0 +1,35 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append list of file variable",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "ListofFile",
+					"value": "\"salesindia\""
+				}
+			}
+		],
+		"parameters": {
+			"FileName": {
+				"type": "string",
+				"defaultValue": "SalesIndia.txt"
+			}
+		},
+		"variables": {
+			"ListofFile": {
+				"type": "Array",
+				"defaultValue": [
+					"SalesUs",
+					"SalesUk"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-04-07T05:36:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,45 @@
+{
+	"name": "newjson1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedService_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emplyees.json",
+				"folderPath": "input",
+				"container": "adfdemo"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"emp id": {
+					"type": "integer"
+				},
+				"Name": {
+					"type": "object",
+					"properties": {
+						"Firstname": {
+							"type": "string"
+						},
+						"Lastname": {
+							"type": "string"
+						}
+					}
+				},
+				"Country": {
+					"type": "string"
+				},
+				"Department": {
+					"type": "null"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

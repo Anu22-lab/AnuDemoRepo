@@ -1,0 +1,63 @@
+{
+	"name": "switchpipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "inputDatadataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "outputlocationdataset",
+						"type": "DatasetReference",
+						"parameters": {
+							"folder": "output1"
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"Foldername": {
+				"type": "string",
+				"defaultValue": "output1"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-04-08T09:52:18Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

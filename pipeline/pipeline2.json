@@ -1,0 +1,38 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable for file name",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "VariableDemo",
+					"value": {
+						"value": "@replace(pipeline().parameters.filename, 'date','07-04-2024' )",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"filename": {
+				"type": "string",
+				"defaultValue": "filename_date"
+			}
+		},
+		"variables": {
+			"VariableDemo": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-04-07T05:36:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

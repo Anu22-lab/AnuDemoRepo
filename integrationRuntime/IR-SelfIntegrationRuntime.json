@@ -1,0 +1,6 @@
+{
+	"name": "IR-SelfIntegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"name": "filterdataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Employeedataset",
+						"type": "DatasetReference"
+					},
+					"name": "Emplpyees"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Outputdataset",
+						"type": "DatasetReference"
+					},
+					"name": "Depsinkdata"
+				}
+			],
+			"transformations": [
+				{
+					"name": "filterempdep"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {emp id} as string,",
+				"          Name as string,",
+				"          Country as string,",
+				"          Department as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Emplpyees",
+				"Emplpyees filter(equals(Department, \"3\")) ~> filterempdep",
+				"filterempdep sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Depsinkdata"
+			]
+		}
+	}
+}

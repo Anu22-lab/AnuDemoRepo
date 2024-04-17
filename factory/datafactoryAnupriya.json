@@ -1,0 +1,9 @@
+{
+	"name": "datafactoryAnupriya",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8500ce21-f419-4c19-a237-d48d22580366",
+		"tenantId": "88c9f0b1-3c29-47bc-a0bf-ec0ad996d9e3"
+	}
+}

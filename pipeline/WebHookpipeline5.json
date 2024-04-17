@@ -1,0 +1,32 @@
+{
+	"name": "WebHookpipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "Send email",
+				"type": "WebHook",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://dummy.restapiexample.com/api/v1/create",
+					"method": "POST",
+					"headers": {
+						"content - header": "application"
+					},
+					"body": {
+						"value": "@pipeline().TriggerTime",
+						"type": "Expression"
+					},
+					"timeout": "00:10:00"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-04-08T09:52:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
