@@ -1,0 +1,9 @@
+{
+	"name": "Anugit",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b5832f42-db51-423b-b277-04cb87051988",
+		"tenantId": "88c9f0b1-3c29-47bc-a0bf-ec0ad996d9e3"
+	}
+}
